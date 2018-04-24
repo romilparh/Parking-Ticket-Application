@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context="com.romilparh.shadybond.shadyparkingsystem.ui.EditProfile">
+
+    <RelativeLayout
+        android:id="@+id/topRelativeLoginPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/logoView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"
+            android:foregroundGravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userName"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/logoView"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userEmail"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/userName"/>
+
+        <EditText
+            android:id="@+id/oldPassword"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="30dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:hint="Old Password"
+            android:gravity="center_horizontal"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/userEmail"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="30dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:hint="Password"
+            android:gravity="center_horizontal"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/oldPassword"/>
+
+        <EditText
+            android:id="@+id/passwordConfirm"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:gravity="center_horizontal"
+            android:textSize="30dp"
+            android:hint="Confirm Password"
+            android:fontFamily="sans-serif-smallcaps"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/password"/>
+
+        <Button
+            android:id="@+id/buttonUpdate"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Update Password"
+            android:fontFamily="sans-serif"
+            android:textColor="#FFFFFF"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/passwordConfirm"/>
+    </RelativeLayout>
+</RelativeLayout>

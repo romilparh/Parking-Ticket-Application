@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:focusableInTouchMode="true"
+    tools:context="com.romilparh.shadybond.shadyparkingsystem.ui.RegistrationActivity">
+    <RelativeLayout
+        android:id="@+id/topRelativeRegisterPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/logoView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"
+            android:foregroundGravity="center"/>
+
+        <EditText
+            android:id="@+id/nameRegister"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="30dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:hint="Name"
+            android:gravity="center_horizontal"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/logoView"/>
+
+        <EditText
+            android:id="@+id/emailRegister"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="30dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:hint="E-Mail"
+            android:gravity="center_horizontal"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/nameRegister"/>
+
+        <EditText
+            android:id="@+id/passwordRegister"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:gravity="center_horizontal"
+            android:textSize="30dp"
+            android:hint="Password"
+            android:fontFamily="sans-serif-smallcaps"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/emailRegister"/>
+
+        <RadioGroup
+            android:id="@+id/genderSelection"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/passwordRegister"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/maleRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:textSize="20dp"
+                android:textColor="#757575"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/femaleRadio"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="#757575"
+                android:text="Female" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/birthDate"
+            android:fontFamily="sans-serif-smallcaps"
+            android:clickable="true"
+            android:editable="false"
+            android:hint="Birth Date"
+            android:focusable="false"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="30dp"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/genderSelection"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/textinputborder"/>
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Register"
+            android:fontFamily="sans-serif"
+            android:textColor="#FFFFFF"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/birthDate"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/bottomRelativeRegisterPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/alreadyAUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Already a user?"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="30dp"
+            android:textColor="#757575"
+            android:gravity="center_horizontal"
+            />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Login"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/alreadyAUser"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
