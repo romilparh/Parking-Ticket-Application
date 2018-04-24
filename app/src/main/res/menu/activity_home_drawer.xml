@@ -12,6 +12,10 @@
             android:id="@+id/nav_location"
             android:icon="@drawable/map"
             android:title="Location" />
+        <item
+            android:id="@+id/payment_method"
+            android:icon="@drawable/card"
+            android:title="Payment Methods" />
     </group>
 
     <item android:title="About Us">
@@ -20,6 +24,16 @@
                 android:id="@+id/nav_about"
                 android:icon="@drawable/team"
                 android:title="About Us" />
+            <item
+                android:id="@+id/emailUs"
+                android:title="Email Us"
+                android:icon="@drawable/mail"/>
+            <item android:title="Call Us"
+                android:icon="@drawable/phone"
+                android:id="@+id/callUs"/>
+            <item android:title="Text Us"
+                android:id="@+id/textUs"
+                android:icon="@drawable/message"/>
         </menu>
     </item>
 

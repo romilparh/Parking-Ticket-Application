@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.romilparh.shadybond.shadyparkingsystem.ui.AddPayment">
+
+    <RelativeLayout
+        android:id="@+id/topRelativeRegisterPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/card"
+            android:foregroundGravity="center"/>
+
+        <EditText
+            android:id="@+id/cardNumber"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="30dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:hint="Card Number"
+            android:gravity="center_horizontal"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/cardView"/>
+
+        <EditText
+            android:id="@+id/cardCVV"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="30dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:hint="CVV"
+            android:gravity="center_horizontal"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/cardNumber"/>
+
+        <RadioGroup
+            android:id="@+id/cardTypeSelection"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/cardCVV"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/creditRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:textSize="20dp"
+                android:textColor="#757575"
+                android:text="Credit" />
+
+            <RadioButton
+                android:id="@+id/debitRadio"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="#757575"
+                android:text="Debit" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/cardExpiryMonth"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="30dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:hint="Expiry Month (eg 01-12)"
+            android:gravity="center_horizontal"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/cardTypeSelection"/>
+        <EditText
+            android:id="@+id/cardExpiryYear"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="30dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:hint="Expiry Year (eg 2018)"
+            android:gravity="center_horizontal"
+            android:background="@drawable/textinputborder"
+            android:layout_below="@id/cardExpiryMonth"/>
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/saveFloatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_save"
+        android:tint="@android:color/white"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

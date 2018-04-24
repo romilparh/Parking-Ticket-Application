@@ -8,6 +8,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -25,14 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.RegistrationActivity"/>
+        <activity android:name=".ui.RegistrationActivity" />
         <activity
             android:name=".ui.Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.ParkingLocation" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -47,12 +45,12 @@
 
         <activity
             android:name=".ui.MapsActivity"
-            android:label="@string/title_activity_maps"/>
-        <activity
-            android:name=".ui.EditProfile"/>
-        <activity
-            android:name=".ui.AddTicket" />
-        <activity android:name=".ui.InstructionActivity"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".ui.EditProfile" />
+        <activity android:name=".ui.AddTicket" />
+        <activity android:name=".ui.InstructionActivity" />
+        <activity android:name=".ui.PaymentMethodDetails" />
+        <activity android:name=".ui.AddPayment"/>
     </application>
 
 </manifest>

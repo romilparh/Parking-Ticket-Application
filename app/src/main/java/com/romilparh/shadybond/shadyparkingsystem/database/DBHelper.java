@@ -36,7 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
             "CREATE TABLE "+ USER_TABLE + " (email TEXT PRIMARY KEY, name TEXT NOT NULL, gender CHAR(1) NOT NULL, password TEXT NOT NULL, dob TEXT NOT NULL)";
 
     private static final String PAYMENT_TABLE_CREATE =
-            "CREATE TABLE "+ PAYMENT_TABLE+" (card_type CHAR(1) NOT NULL, card_number TEXT NOT NULL, card_cvv TEXT NOT NULL, email TEXT NOT NULL, FOREIGN KEY(email) REFERENCES user_info(email))";
+            "CREATE TABLE "+ PAYMENT_TABLE+" (card_type CHAR(1) NOT NULL, card_number TEXT NOT NULL, card_cvv TEXT NOT NULL, email TEXT NOT NULL,date TEXT, FOREIGN KEY(email) REFERENCES user_info(email))";
 
     private static final String TICKET_TABLE_CREATE =
             "CREATE TABLE "+TICKET_TABLE+" (email TEXT, price REAL NOT NULL, car_make INTEGER(4) NOT NULL, car_color TEXT NOT NULL, time_ticket TEXT NOT NULL, parking_lane TEXT NOT NULL, parking_number INTEGER NOT NULL, card_number TEXT, car_number TEXT NOT NULL, FOREIGN KEY(email) REFERENCES user_info(email), FOREIGN KEY(card_number) REFERENCES payment_info(card_number))";
@@ -152,6 +152,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("card_number", model.getCard_number());
         values.put("card_cvv", model.getCvv());
         values.put("email", model.geteMail());
+        values.put("date",model.getDateExpiry());
 
         long id = 0;
         // 3. insert values into table
@@ -204,6 +205,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 model.setCard_number(cursor.getString(1));
                 model.setCvv(cursor.getString(2));
                 model.seteMail(cursor.getString(3));
+                model.setDateExpiry(cursor.getString(4));
                 modelList.add(model);
             } while (cursor.moveToNext());
         }

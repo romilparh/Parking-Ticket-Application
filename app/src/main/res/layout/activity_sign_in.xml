@@ -51,18 +51,6 @@
         android:background="@drawable/textinputborder"
         android:layout_below="@id/emailLogin"/>
 
-    <CheckBox
-        android:id="@+id/checkboxRememberMe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:fontFamily="sans-serif-smallcaps"
-        android:layout_below="@id/passwordLogin"
-        android:textSize="30dp"
-        android:textColor="#757575"
-        android:text="Remember Me?" />
-
     <Button
         android:id="@+id/buttonLogin"
         android:layout_marginTop="20dp"
@@ -73,7 +61,7 @@
         android:fontFamily="sans-serif"
         android:textColor="#FFFFFF"
         android:background="@color/colorPrimary"
-        android:layout_below="@id/checkboxRememberMe"/>
+        android:layout_below="@id/passwordLogin"/>
 
 </RelativeLayout>
     <RelativeLayout

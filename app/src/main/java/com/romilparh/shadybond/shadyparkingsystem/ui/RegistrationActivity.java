@@ -23,6 +23,7 @@ import com.romilparh.shadybond.shadyparkingsystem.validation.StringValidator;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener {
@@ -36,6 +37,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     char gender;
 
     DBHelper db;
+    List<UserInfoDBModel> userList;
 
     EMailValidator eV = new EMailValidator();
     PasswordValidator pV = new PasswordValidator();
@@ -55,17 +57,17 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_registration);
 
         db = new DBHelper(this);
-        registerButton = findViewById(R.id.buttonRegister);
-        loginButton = findViewById(R.id.buttonLogin);
-        loginButton.setOnClickListener(this);
-        registerButton.setOnClickListener(this);
+        this.registerButton = findViewById(R.id.buttonRegister);
+        this.loginButton = findViewById(R.id.buttonLogin);
+        this.loginButton.setOnClickListener(this);
+        this.registerButton.setOnClickListener(this);
 
-        myCalendar = Calendar.getInstance();
+        this.myCalendar = Calendar.getInstance();
 
-        email = (EditText) findViewById(R.id.emailRegister);
-        password = (EditText) findViewById(R.id.passwordRegister);
-        genderGroup = (RadioGroup) findViewById(R.id.genderSelection);
-        name = (EditText) findViewById(R.id.nameRegister);
+        this.email = (EditText) findViewById(R.id.emailRegister);
+        this.password = (EditText) findViewById(R.id.passwordRegister);
+        this.genderGroup = (RadioGroup) findViewById(R.id.genderSelection);
+        this.name = (EditText) findViewById(R.id.nameRegister);
 
         birthdate = (EditText) findViewById(R.id.birthDate);
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -126,13 +128,42 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.buttonRegister:
                 // Registration Code Here
-                if (eV.isValidEmailAddress(this.email.getText().toString()) && sV.checkString(this.name.getText().toString()) && pV.checkPassword(this.password.getText().toString()) && !this.dob.isEmpty() && !String.valueOf(gender).isEmpty()) {
-                    UserInfoDBModel model = new UserInfoDBModel(this.email.getText().toString().toLowerCase(), this.name.getText().toString(), this.password.getText().toString(), this.dob, 'm');
-                    db.insertIntoUserDB(model);
-                    // Intent to Home Screen at clicking on alert ok of successfully registered
-                } else { // Use else if to check which thing is not correct
+                if(!sV.checkString(this.name.getText().toString())) {
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-                    builder1.setMessage("Kindly Check if all fields are entered correctly");
+                    builder1.setMessage("Name Entered Not Valid");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }else if (!eV.isValidEmailAddress(this.email.getText().toString()))
+                {
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                    builder1.setMessage("EMail Entered Not Valid");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+
+                }
+                else if(!pV.checkPassword(this.password.getText().toString())){
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                    builder1.setMessage("Password Length Less than 8");
                     builder1.setCancelable(true);
 
                     builder1.setPositiveButton(
@@ -146,9 +177,72 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     AlertDialog alert11 = builder1.create();
                     alert11.show();
                 }
+                else if (this.genderGroup.getCheckedRadioButtonId() == -1)
+                {
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                    builder1.setMessage("Gender Not Selected");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }  else if(this.dob == null){
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                    builder1.setMessage("Date of Birth Not Entered");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
+                else if (eV.isValidEmailAddress(this.email.getText().toString()) && sV.checkString(this.name.getText().toString()) && pV.checkPassword(this.password.getText().toString()) && !this.dob.isEmpty() && !String.valueOf(gender).isEmpty()) {
+                    if(this.genderGroup.getCheckedRadioButtonId() == R.id.maleRadio){
+                        this.gender = 'm';
+                    }
+                    else{
+                        this.gender = 'f';
+                    }
+                    UserInfoDBModel model = new UserInfoDBModel(this.email.getText().toString().toLowerCase(), this.name.getText().toString(), this.password.getText().toString(), this.dob,this.gender);
+                    db.insertIntoUserDB(model);
+
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                    builder1.setMessage("User Registered");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = new Intent(RegistrationActivity.this, SignInActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+
+
+                    // Intent to Home Screen at clicking on alert ok of successfully registered
+                }
 
         }
     }
+
 }
 
 // Radio Group Get Value and Done and Add Name field

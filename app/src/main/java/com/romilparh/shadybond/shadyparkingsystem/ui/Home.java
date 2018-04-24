@@ -1,7 +1,9 @@
 package com.romilparh.shadybond.shadyparkingsystem.ui;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -53,6 +55,7 @@ public class Home extends AppCompatActivity
         payment.setCard_number("65431");
         payment.setCard_type('c');
         payment.setCvv("224");
+        payment.setDateExpiry("11/11/2022");
         payment.seteMail(this.email);
 
         ticket.setCard_Number("65431");
@@ -163,13 +166,91 @@ public class Home extends AppCompatActivity
         } else if (id == R.id.nav_location) {
             Intent intent = new Intent(Home.this, MapsActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_about) {
+        } else if(id == R.id.payment_method){
+            Intent intent = new Intent(Home.this, PaymentMethodDetails.class);
+            intent.putExtra("email",this.email);
+            intent.putExtra("name",this.name);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_about) {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-            builder1.setMessage("Please contact for issues at romilparhwal007@gmail.com");
+            builder1.setMessage("About the team: \nRomil (All Rounder)");
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
                     "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+        } else if (id == R.id.emailUs){
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+            builder1.setMessage("EMail Us");
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "romilparhwal007@gmail.com"));
+                            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "About Shady Parking System");
+
+                            startActivity(Intent.createChooser(emailIntent, "Chooser Title"));
+                        }
+                    });
+            builder1.setNegativeButton(
+                    "No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+        } else if(id == R.id.callUs){
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+            builder1.setMessage("Call Us?\nWorking Hours: 9am to 5 pm");
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel","+16479152405",null));
+                            startActivity(intent);
+                        }
+                    });
+            builder1.setNegativeButton(
+                    "No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+        } else if (id == R.id.textUs){
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+            builder1.setMessage("Text Us?");
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Uri uri = Uri.parse("smsto:6479152405");
+                            Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+                            it.putExtra("sms_body", "Shady Parking System Contact Us\n");
+                            startActivity(it);
+                        }
+                    });
+            builder1.setNegativeButton(
+                    "No",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();

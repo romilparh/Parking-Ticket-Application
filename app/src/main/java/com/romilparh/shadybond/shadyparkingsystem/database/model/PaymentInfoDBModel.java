@@ -8,17 +8,16 @@ import com.romilparh.shadybond.shadyparkingsystem.validation.EMailValidator;
 
 public class PaymentInfoDBModel {
     char card_type;
-    String card_number, cvv, eMail;
+    String card_number, cvv, eMail, dateExpiry;
     EMailValidator validator  = new EMailValidator();
 
-    public PaymentInfoDBModel(char card_type, String card_number, String cvv, String eMail){
+    public PaymentInfoDBModel(char card_type, String card_number, String cvv, String eMail, String dateExpiry){
         if(validator.isValidEmailAddress(eMail)){
             this.card_type = card_type;
             this.card_number = card_number;
             this.cvv = cvv;
             this.eMail = eMail;
-        }else{
-            // Throw Exception
+            this.dateExpiry = dateExpiry;
         }
     }
 
@@ -42,6 +41,10 @@ public class PaymentInfoDBModel {
         this.eMail = eMail;
     }
 
+    public void setDateExpiry(String dateExpiry){
+        this.dateExpiry = dateExpiry;
+    }
+
     public String getCard_Type(){
         String s = String.valueOf(this.card_type);
         return s;
@@ -57,5 +60,8 @@ public class PaymentInfoDBModel {
 
     public String geteMail(){
         return this.eMail;
+    }
+
+    public String getDateExpiry(){ return this.dateExpiry;
     }
 }
