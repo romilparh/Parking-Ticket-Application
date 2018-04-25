@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    tools:context="com.romilparh.shadybond.shadyparkingsystem.ui.AddTicket">
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:id="@+id/logoView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/logo"
+        android:foregroundGravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/priceAddTicket"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_below="@id/logoView"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/carNumberAddTicket"
+        android:layout_below="@id/priceAddTicket"
+        android:background="@drawable/textinputborder"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="30dp"
+        android:hint="Car Number"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/carMakeAddTicket"
+        android:layout_below="@id/carNumberAddTicket"
+        android:background="@drawable/textinputborder"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="30dp"
+        android:hint="Car Make"
+        android:gravity="center_horizontal"
+        android:inputType="number"
+        android:layout_marginTop="20dp"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeRGAddTicket"
+        android:layout_below="@id/carMakeAddTicket"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/half_HourAddTicket"
+            android:text="30 Minutes"
+            android:layout_margin="10dp"
+            android:onClick="onClick"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/one_hourAddTicket"
+            android:text="1 hour"
+            android:layout_margin="10dp"
+            android:onClick="onClick"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/two_hourAddTicket"
+            android:text="2 hours"
+            android:layout_margin="10dp"
+            android:onClick="onClick"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dayAddTicket"
+            android:text="Day"
+            android:layout_margin="10dp"
+            android:onClick="onClick"/>
+    </RadioGroup>
+
+
+    <Spinner
+        android:id="@+id/carColorAddTicket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/CarColor"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/timeRGAddTicket"
+        android:gravity="center_horizontal"/>
+    <Spinner
+        android:id="@+id/parkingLaneAddTicket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/CarLane"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/carColorAddTicket"/>
+    <Spinner
+        android:id="@+id/parkingNumberAddTicket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/SpotNum"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/parkingLaneAddTicket"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardNumberAddTicket"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/parkingNumberAddTicket"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/saveFloatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_save"
+        android:tint="@android:color/white"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

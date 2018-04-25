@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:id="@+id/parentRelativeView">
+
+    <RelativeLayout
+        android:id="@+id/relativeViewHeader"
+        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/card"
+            android:id="@+id/logoView"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailView"
+        android:layout_toRightOf="@id/relativeViewHeader">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Card Number: "
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/cardNoTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardNumberTV"
+            android:layout_toRightOf="@id/cardNoTV"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Car CVV:  "
+            android:layout_below="@id/cardNoTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/cardCVV"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardCVVTV"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_toRightOf="@id/cardCVV"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/cardNumberTV"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Card Type:  "
+            android:layout_below="@id/cardCVV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/cardType"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardTypeTV"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_toRightOf="@id/cardType"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/cardCVVTV"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Expiry Date:  "
+            android:layout_below="@id/cardType"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/expiryTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/expiryDateTV"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_toRightOf="@id/cardType"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/cardTypeTV"/>
+    </RelativeLayout>
+</RelativeLayout>

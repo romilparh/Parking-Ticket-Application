@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:id="@+id/parentRelativeView">
+
+    <RelativeLayout
+        android:id="@+id/relativeViewHeader"
+        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:id="@+id/logoView"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailView"
+        android:layout_toRightOf="@id/relativeViewHeader">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Date of Ticket: "
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/dateTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dateView"
+            android:layout_toRightOf="@id/timeTV"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Time of Ticket: "
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/timeTV"
+            android:layout_below="@id/dateTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/timeTicketTV"
+            android:layout_toRightOf="@id/timeTV"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_below="@id/dateView"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Car Number:  "
+            android:layout_below="@id/timeTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/carNoTV"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/carNumberTV"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_toRightOf="@id/carNoTV"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/timeTicketTV"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Parking Lane:  "
+            android:layout_below="@id/carNoTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/parkingLTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/parkingLaneTV"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_toRightOf="@id/parkingLTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/carNumberTV"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Parking Number:  "
+            android:layout_below="@id/parkingLTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/parkingNoTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/parkingNumberTV"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_toRightOf="@id/parkingNoTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/parkingLaneTV"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Car Make:  "
+            android:layout_below="@id/parkingNoTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/carMTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/carMakeTV"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_toRightOf="@id/carMTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/parkingNumberTV"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Car Color:  "
+            android:layout_below="@id/carMTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/carClrTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/carColorTV"
+            android:layout_toRightOf="@id/carClrTV"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/carMakeTV"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Price:  "
+            android:layout_below="@id/carClrTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/prcTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/priceTV"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/prcTV"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/carColorTV"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Card Number:  "
+            android:layout_below="@id/prcTV"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/cardNoTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardNumberTV"
+            android:layout_toRightOf="@id/cardNoTV"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"
+            android:layout_below="@id/priceTV"/>
+
+
+    </RelativeLayout>
+</RelativeLayout>

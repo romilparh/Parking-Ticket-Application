@@ -1,18 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.romilparh.shadybond.shadyparkingsystem.SignInActivity">
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:focusableInTouchMode="true"
+    tools:context="com.romilparh.shadybond.shadyparkingsystem.ui.SignInActivity">
+<RelativeLayout
+    android:id="@+id/topRelativeLoginPage"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/logoView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"
+        android:foregroundGravity="center"/>
+
+    <EditText
+        android:id="@+id/emailLogin"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textSize="30dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="E-Mail"
+        android:gravity="center_horizontal"
+        android:background="@drawable/textinputborder"
+        android:layout_below="@id/logoView"/>
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/passwordLogin"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:gravity="center_horizontal"
+        android:textSize="30dp"
+        android:hint="Password"
+        android:fontFamily="sans-serif-smallcaps"
+        android:background="@drawable/textinputborder"
+        android:layout_below="@id/emailLogin"/>
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Sign In"
+        android:fontFamily="sans-serif"
+        android:textColor="#FFFFFF"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/passwordLogin"/>
+
+</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/bottomRelativeLoginPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/notAUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not a user?"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="30dp"
+            android:textColor="#757575"
+            android:gravity="center_horizontal"
+            />
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Register"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/notAUser"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
