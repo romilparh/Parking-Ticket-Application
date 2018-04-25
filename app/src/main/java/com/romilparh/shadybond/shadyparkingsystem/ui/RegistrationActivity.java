@@ -33,6 +33,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private Button registerButton, loginButton;
     RadioGroup genderGroup;
     UserInfoDBModel model = new UserInfoDBModel();
+    List<UserInfoDBModel> list;
     String dob;
     char gender;
 
@@ -57,6 +58,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_registration);
 
         db = new DBHelper(this);
+        list = db.getDataFromUserInfo();
         this.registerButton = findViewById(R.id.buttonRegister);
         this.loginButton = findViewById(R.id.buttonLogin);
         this.loginButton.setOnClickListener(this);
@@ -209,7 +211,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     AlertDialog alert11 = builder1.create();
                     alert11.show();
                 }
-                else if (eV.isValidEmailAddress(this.email.getText().toString()) && sV.checkString(this.name.getText().toString()) && pV.checkPassword(this.password.getText().toString()) && !this.dob.isEmpty() && !String.valueOf(gender).isEmpty()) {
+                else if (eV.isValidEmailAddress(this.email.getText().toString()) && sV.checkString(this.name.getText().toString()) && pV.checkPassword(this.password.getText().toString()) && !this.dob.isEmpty() && !String.valueOf(gender).isEmpty()&&isNotRegistered(this.email.getText().toString())) {
                     if(this.genderGroup.getCheckedRadioButtonId() == R.id.maleRadio){
                         this.gender = 'm';
                     }
@@ -241,6 +243,15 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 }
 
         }
+    }
+
+    public boolean isNotRegistered(String email){
+        boolean check = true;
+        for(int i = 0; i<this.list.size();i++){
+            if(email.equals(this.list.get(i).getEMail())){
+                check = false;
+            }
+        }   return check;
     }
 
 }

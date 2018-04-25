@@ -54,9 +54,30 @@ public class PaymentMethodDetails extends AppCompatActivity {
                 intent.putExtra("email", email);
                 intent.putExtra("name",name);
                 startActivity(intent);
+                finish();
             }
         });
         setTitle(this.name.toUpperCase()+"'s Payment Methods");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = getIntent();
+
+        this.email = intent.getStringExtra("email");
+        this.name = intent.getStringExtra("name");
+
+        db = new DBHelper(this);
+        this.paymentList = db.getDataFromPaymentInfo(this.email);
+        mRecyclerView = findViewById(R.id.recyclerViewPayment);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new RVAdapterPayment(paymentList);
+        mRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override
@@ -70,7 +91,11 @@ public class PaymentMethodDetails extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.back:
-                onBackPressed();
+                Intent intent = new Intent(PaymentMethodDetails.this, Home.class);
+                intent.putExtra("email",email);
+                intent.putExtra("name",name);
+                startActivity(intent);
+                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);

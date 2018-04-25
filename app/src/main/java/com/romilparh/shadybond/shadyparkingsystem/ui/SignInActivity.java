@@ -87,9 +87,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 else if(login(edEmail.getText().toString().toLowerCase(),edPassword.getText().toString())){
 
                         Intent i = new Intent(SignInActivity.this, Home.class);
-                        i.putExtra("eMailLoggedIn",edEmail.getText().toString());
+                        i.putExtra("email",edEmail.getText().toString());
                         i.putExtra("name",this.name);
                         startActivity(i);
+                        finish();
                     }
 
                 else{

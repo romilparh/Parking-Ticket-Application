@@ -47,26 +47,10 @@ public class Home extends AppCompatActivity
 
         Intent intent = getIntent();
 
-        this.email = intent.getStringExtra("eMailLoggedIn");
+        this.email = intent.getStringExtra("email");
         this.name = intent.getStringExtra("name");
 
         db = new DBHelper(this);
-
-        payment.setCard_number("65431");
-        payment.setCard_type('c');
-        payment.setCvv("224");
-        payment.setDateExpiry("11/11/2022");
-        payment.seteMail(this.email);
-
-        ticket.setCard_Number("65431");
-        ticket.setParking_number(2);
-        ticket.setParking_lane("A");
-        ticket.setTime_ticket("3/11/1995");
-        ticket.setCar_color("White");
-        ticket.setCar_Make(2011);
-        ticket.setPrice(20);
-        ticket.setCar_number("XYZ");
-        ticket.seteMail(this.email);
 
         myDataset = db.getDataFromParkingTicketDB(this.email);
 

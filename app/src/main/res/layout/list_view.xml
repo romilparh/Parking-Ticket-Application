@@ -3,6 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     android:id="@+id/parentRelativeView">
 
     <RelativeLayout
@@ -31,9 +32,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="Time of Ticket: "
+            android:text="Date of Ticket: "
             android:fontFamily="sans-serif-smallcaps"
-            android:id="@+id/timeTV"/>
+            android:id="@+id/dateTV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dateView"
+            android:layout_toRightOf="@id/timeTV"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="right"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Time of Ticket: "
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:id="@+id/timeTV"
+            android:layout_below="@id/dateTV"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -41,7 +62,9 @@
             android:id="@+id/timeTicketTV"
             android:layout_toRightOf="@id/timeTV"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:textSize="20dp"
+            android:layout_below="@id/dateView"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="right"/>
 

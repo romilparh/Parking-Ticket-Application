@@ -19,15 +19,18 @@ public class CardValidation {
     }
 
     public boolean isValidExpiryMonth(String month){
-        if(month.equals("1")||month.equals("2")||month.equals("3")||month.equals("4")||month.equals("5")||month.equals("6")||month.equals("7")||month.equals("8")||month.equals("9")||month.equals("10")||month.equals("12")||month.equals("12")){
+        int m = Integer.parseInt(month);
+        if(m>0 && m<13){
             return true;
         }
         else return false;
     }
 
     public boolean isValidExpiryYear(String year){
-        if(toString().length()==4){
+        int yearE = Integer.parseInt(year);
+        if(yearE>2017){
             return true;
         } else return false;
     }
+
 }

@@ -54,7 +54,6 @@ public class AddPayment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addMethodPayment();
-                onBackPressed();
             }
         });
     }
@@ -72,6 +71,7 @@ public class AddPayment extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.back:
                 onBackPressed();
+                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -154,7 +154,7 @@ public class AddPayment extends AppCompatActivity {
 
             AlertDialog alert11 = builder1.create();
             alert11.show();
-        } else if(cV.isValidCardNumber(this.cardNo.getText().toString()) && !cV.isValidCardCvv(this.cardCvv.getText().toString()) && cV.isValidExpiryMonth(this.cardExpiryMonth.getText().toString())&& !cV.isValidExpiryYear(this.cardExpiryYear.getText().toString())){
+        } else if(cV.isValidCardNumber(this.cardNo.getText().toString()) && cV.isValidCardCvv(this.cardCvv.getText().toString()) && cV.isValidExpiryMonth(this.cardExpiryMonth.getText().toString())&& cV.isValidExpiryYear(this.cardExpiryYear.getText().toString())){
             char type;
             if(this.cardType.getCheckedRadioButtonId() == R.id.creditRadio){
                 type = 'c';
@@ -164,7 +164,7 @@ public class AddPayment extends AppCompatActivity {
             }
             this.model.setCard_number(this.cardNo.getText().toString());
             this.model.setCvv(this.cardCvv.getText().toString());
-            this.model.setDateExpiry(this.cardExpiryMonth.getText().toString()+" "+this.cardExpiryYear.getText().toString());
+            this.model.setDateExpiry(this.cardExpiryMonth.getText().toString()+"/"+this.cardExpiryYear.getText().toString());
             this.model.setCard_type(type);
             this.model.seteMail(this.email);
             this.db.insertIntoPaymentDB(this.model);
@@ -177,8 +177,7 @@ public class AddPayment extends AppCompatActivity {
                     "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            Intent intent = new Intent(AddPayment.this, PaymentMethodDetails.class);
-                            startActivity(intent);
+                            onBackPressed();
                             finish();
                         }
                     });

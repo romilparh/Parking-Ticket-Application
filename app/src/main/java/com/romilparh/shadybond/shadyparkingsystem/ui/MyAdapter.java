@@ -10,15 +10,24 @@ import com.romilparh.shadybond.shadyparkingsystem.R;
 import com.romilparh.shadybond.shadyparkingsystem.database.DBHelper;
 import com.romilparh.shadybond.shadyparkingsystem.database.model.ParkingTicketDBModel;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
  * Created by shadybond on 2018-04-20.
  */
 
+// Adapter for Home Screen for Ticket List
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<ParkingTicketDBModel> mDataset;
+    DateFormat df;
+    Date today;
+    String reportDate;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
@@ -29,7 +38,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 parkingLane,
                 parkingNumber,
                 carNumber,
-                cardNumber;
+                cardNumber,
+                dateNow;
 
 
         public ViewHolder(View v) {
@@ -44,6 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             this.parkingNumber = v.findViewById(R.id.parkingNumberTV);
             this.carNumber = v.findViewById(R.id.carNumberTV);
             this.cardNumber = v.findViewById(R.id.cardNumberTV);
+            this.dateNow = v.findViewById(R.id.dateView);
 
         }
     }
@@ -62,6 +73,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
+
+        this.df = new SimpleDateFormat("MM/dd/yyyy");
+        this.today = Calendar.getInstance().getTime();
+        reportDate = df.format(today);
+
         holder.ticketTime.setText(mDataset.get(position).getTime_ticket());
         holder.carNumber.setText(mDataset.get(position).getCar_number());
         holder.carColor.setText(mDataset.get(position).getCar_color());
@@ -70,6 +86,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.parkingNumber.setText(String.valueOf(mDataset.get(position).getParking_number()));
         holder.price.setText(String.valueOf(mDataset.get(position).getPrice()));
         holder.cardNumber.setText(mDataset.get(position).getCard_number());
+        holder.dateNow.setText(reportDate);
     }
 
     @Override

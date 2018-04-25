@@ -39,7 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
             "CREATE TABLE "+ PAYMENT_TABLE+" (card_type CHAR(1) NOT NULL, card_number TEXT NOT NULL, card_cvv TEXT NOT NULL, email TEXT NOT NULL,date TEXT, FOREIGN KEY(email) REFERENCES user_info(email))";
 
     private static final String TICKET_TABLE_CREATE =
-            "CREATE TABLE "+TICKET_TABLE+" (email TEXT, price REAL NOT NULL, car_make INTEGER(4) NOT NULL, car_color TEXT NOT NULL, time_ticket TEXT NOT NULL, parking_lane TEXT NOT NULL, parking_number INTEGER NOT NULL, card_number TEXT, car_number TEXT NOT NULL, FOREIGN KEY(email) REFERENCES user_info(email), FOREIGN KEY(card_number) REFERENCES payment_info(card_number))";
+            "CREATE TABLE "+TICKET_TABLE+" (email TEXT, price REAL NOT NULL, car_make INTEGER(4) NOT NULL, car_color TEXT NOT NULL, time_ticket TEXT NOT NULL, parking_lane TEXT NOT NULL, parking_number INTEGER NOT NULL, card_number TEXT, car_number TEXT NOT NULL, FOREIGN KEY(email) REFERENCES user_info(email))";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -89,6 +89,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + PAYMENT_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + TICKET_TABLE);
         db.execSQL(FOREIGN_KEY_ENABLE);
         db.execSQL(USER_TABLE_CREATE);
         db.execSQL(PAYMENT_TABLE_CREATE);
