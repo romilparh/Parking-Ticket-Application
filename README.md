@@ -1,4 +1,4 @@
-# ParkingSystem
+# Parking Ticket Application
 
 This is a parking ticket application designed and implemented by me.
 
